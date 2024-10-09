@@ -26,9 +26,7 @@ app.post('/register', (req, res) => {
             console.error('Error reading file:', err);
             return res.status(500).send('Internal server error')
         }
-        res.send('Registration successful! You are now registered. <a href="/login.html">Log In</a>');
-   
-
+    
           // Check if username already exists
           const users = data.split('\n').map(line => line.split(',')[0].trim());
           if (users.includes(username)) {
@@ -42,8 +40,9 @@ app.post('/register', (req, res) => {
                   return res.status(500).send('Internal server error.');
               }
 
-              res.send('Registration successful! You can now <a href="/login.html">Log In</a>');
-            //   res.redirect('/login.html');
+            // Send success message only after user is registered
+            res.send('Registration successful! You can now <a href="/login.html">Log In</a>');
+      
 
           });
     });
