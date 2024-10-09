@@ -72,6 +72,30 @@ app.post('/login', (req, res) => {
     });
 });
 
+// Login Endpoint
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    fs.readFile('myDB.txt', 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).send('Internal server error.');
+        }
+
+        const users = data.split('\n');
+        const userFound = users.some(line => {
+            const [storedUsername, storedPassword] = line.split(',').map(item => item.trim());
+            return storedUsername === username && storedPassword === password;
+        });
+
+        if (userFound) {
+            res.send(`Welcome, ${username}!`);
+        } else {
+            res.status(401).send('Invalid username or password. Please try again.');
+        }
+    });
+});
+
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
