@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Register Endpoint
-app.post('register',(req, res) => {
+app.post('/register', (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
@@ -41,7 +41,9 @@ app.post('register',(req, res) => {
                   console.error('Error writing to file:', err);
                   return res.status(500).send('Internal server error.');
               }
-              res.send('Registration successful! You can now <a href="/login">Log In</a>');
+
+              res.send('Registration successful! You can now <a href="/login.html">Log In</a>');
+            //   res.redirect('/login.html');
 
           });
     });
