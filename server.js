@@ -4,6 +4,10 @@ const fs = require('fs');
 const app = express();
 const PORT = 8080;
 
+
+// Middleware to parse form data
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Serve static files
 app.use(express.static('public'));
 
@@ -16,11 +20,13 @@ app.post('register',(req, res) => {
 
     }
 
+    
     fs.readFile('myDB.txt', 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading file:', err);
             return res.status(500).send('Internal server error')
         }
+        res.send('Registration successful! You are now registered. <a href="/login.html">Log In</a>');
    
 
           // Check if username already exists
@@ -66,9 +72,16 @@ app.post('/login', (req, res) => {
 });
 
 
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+    console.error('Unexpected error:', err);
+    res.status(500).send('Internal server error.');
+});
+
+
 // Start the Server
 app.listen(PORT, () => {
-    console.log("Server is running on http://localhost:${PORT}");
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 
