@@ -8,6 +8,8 @@ body {
 }
 
 .container {
+    width: 100%;
+    max-width: 400px;
     background: rgba(255, 255, 255, 0.9);
     padding: 2rem;
     border-radius: 10px;
@@ -15,22 +17,28 @@ body {
     animation: fadeIn 1.5s ease-in-out;
 }
 
-.signin-form {
-    width: 300px;
-    padding: 24px;
-}
 
 h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #333;
     font-weight: bold;
     text-transform: uppercase;
 }
 
+
+.btn-action {
+    align-items: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
 .input-group {
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 .input-group label {
@@ -39,7 +47,7 @@ h2 {
 }
 
 .input-group input {
-    width: 94%;
+    width: -webkit-fill-available;
     padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -51,7 +59,7 @@ h2 {
     outline: none;
 }
 
-button {
+button, .btn {
     width: 100%;
     padding: 0.75rem;
     border: none;
@@ -59,11 +67,13 @@ button {
     background: #ff6f61;
     color: white;
     font-size: 1.25rem;
+    text-decoration: none;
     cursor: pointer;
+    text-align: center;
     transition: background 0.3s, transform 0.3s;
 }
 
-button:hover {
+.btn, button:hover {
     background: #ff3e2d;
     transform: scale(1.05);
 }
@@ -77,4 +87,13 @@ button:hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+p {
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color:#ff3e2d;
 }

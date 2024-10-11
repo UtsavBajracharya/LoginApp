@@ -4,17 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Register Now!</h1>
-    <form action="/register" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Register" class="submit-button">
-    </form>
+    <div class="container">
+        <div class="register-form">
+            <h2>Create an account</h2>
+            <form action="/register" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" value="Register">Register</button>
+                <br>
+                <p>Already registered? <a href="login.html" class="link">Sign In</a></p>
+            </form>
+        </div>
+    </div>
     
 </body>
 </html>

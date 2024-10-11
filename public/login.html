@@ -7,18 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br>
-        <input type="submit" value="Log In" class="submit-button">
-    </form> -->
-
     <div class="container">
         <div class="signin-form">
-            <h2>Sign In</h2>
-            <form action="/login" method="post">
+            <h2>Login</h2>
+            <form action="/login" method="post" id="loginForm">
                 <div class="input-group">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" required>
@@ -29,11 +21,13 @@
                 </div>
                 <button type="submit" value="Log In">Sign In</button>
                 <br>
-                <p>Don't have any account? <a href="register.html">Register</a></p>
+                <p>Don't have any account? <a href="register.html" class="link">Register</a></p>
+
+                
+
             </form>
+
         </div>
     </div>
-
-    
 </body>
 </html>
